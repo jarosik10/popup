@@ -14,30 +14,21 @@ const defaultExportFunction = () => {
     const popUpCloseButton = document.querySelector('.popup-close');
     popUpCloseButton.addEventListener('click', () => hidePopup(popUp));
 
-    // cookie - counter cookie name, hideO
     const { cookie, hideOn, showAfter, showMax } = popUp.dataset;
-    console.log(cookie, hideOn, showAfter, showMax)
 
+    const alreadyShown = sessionStorage.getItem('popupShown');
     const cookieCounter =  Number(window.localStorage.getItem(cookie));
     const locationPath = window.location.pathname;
-
     const hideOnArray = hideOn.split(',');
 
-    if (cookieCounter < Number(showMax) && !hideOnArray.includes(locationPath)) {
+    if (cookieCounter < Number(showMax) && !hideOnArray.includes(locationPath) && !alreadyShown) {
+        sessionStorage.setItem('popupShown', true);
         window.localStorage.setItem(cookie, cookieCounter + 1);
         setTimeout(() => displayPopup(popUp), showAfter);
     } else {
-        alert(`cookieCounter is ${cookieCounter} >= ${showMax} or ${locationPath} is one of: ${hideOn}`);
+        alert(`cookieCounter is ${cookieCounter} >= ${showMax} or ${locationPath} is one of: ${hideOn} or alreadyShown is true`);
     }
 }
 
 
 defaultExportFunction();
-
-const mainButton = document.querySelector('.main-button');
-mainButton.addEventListener('click', (event) => {
-    event.preventDefault();
-    alert('Form sent');
-})
-
-
