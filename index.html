@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="index.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet"> 
+</head>
+
+<body>
+    <div id="js-popup" data-cookie="cookie-name" data-show-after="1000" data-show-max="300"
+        data-hide-on="/hideon.html,url2,url3">
+        <div class="popup-overlay">
+            <button class="popup-close"></button>
+            <div class="popup-content">
+                <div class="content-images-wrapper">
+                    <a class="image-link" href="https://openstax.pl/podreczniki"><img class="content-image" src="./images/fizyka.png" }></a>
+                    <a class="image-link" href="https://openstax.pl/podreczniki"><img class="content-image" src="./images/psychologia.png" }></a>
+                </div>
+                <form class="content-main">
+                    <p class="main-text">Korzystasz z naszego podręcznika? <br /> Powiedz nam o tym!</p>
+                    <button class="main-button">Korzystam</button>
+                </form>
+                <!-- custom html, który użytkownik poda w panelu admina -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Skrypt powinien ustawiać display: block; na popupie po czasie określonym data-show-after, chyba że dany użytkownik przekroczył data-show-max (ustalane po data-cookie) lub jeżeli użytkownik jest na stronie podanej w data-hide-on
+      
+      od Design zapytaj martę. Skrypt możesz przygotować w repo openstax-website wg. tego jak są tam napisane inne skrypty, ale nie musisz stawiać sobie całej aplikacji. Możesz testować na swoim własnym index.html czy jakkolwiek chcesz -->
+    <script src='index.js'></script>
+</body>
+
+</html>
